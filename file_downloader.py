@@ -9,12 +9,12 @@ def downloadFile(url, directory) :
          the web. Returns the time taken for the download.
       '''
 
-      if raw_input('Rename File? (Y or N) : ') == 'Y' :
-            localFilename = raw_input('Enter Filename to save : ')
+      if input('Rename File? (Y or N) : ') == 'Y' :
+            localFilename = input('Enter Filename to save : ')
       else :
             localFilename = url.split('/')[-1] # if the user doesn't specify a new filename, use the actual one
 
-      print 'Starting download...'
+      print('Starting download...')
             
       r = requests.get(url, stream=True)
 
@@ -41,13 +41,13 @@ if __name__ == '__main__' :
       if len(sys.argv) > 1 :
             url = sys.argv[1]
       else :
-            url = raw_input('Enter the URL : ')
+            url = input('Enter the URL : ')
 
-      directory = raw_input('Where would you want to save the file ? ')
+      directory = input('Where would you want to save the file ? ')
       
       time_elapsed = downloadFile(url, directory)
-      print 'Download complete...'
-      print 'Time Elapsed: ',
-      print time_elapsed,
-      print 'seconds.'
-      print '\n\n'
+      print('Download complete...')
+      print('Time Elapsed: ', end = '')
+      print(time_elapsed)
+      print('seconds.')
+      print('\n\n')
